@@ -1,0 +1,32 @@
+#calculator{
+  border:1px solid black;
+  border-radius: 5px;
+  width: 200px;
+  margin: auto;
+
+}
+#heading{
+  text-align: center;
+  font-size: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 200;
+}
+#display{
+  margin: 25px;
+  height: 30px;
+  font-size: large;
+  width: 71%;
+}
+.button{
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+  margin-bottom: 10px;
+  border: 1px solid black ;
+
+}
+.button-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
