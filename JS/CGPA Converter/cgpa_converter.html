@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGPA to Percentage Converter</title>
+  <link rel="stylesheet" href="cgpa_converter.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="heading">CGPA (10-scale) to Percentage</h2>
+
+    <input type="number" id="cgpa" placeholder="Enter CGPA (out of 10)">
+
+    <label>Select College Rule:</label>
+    <select id="multiplier">
+      <option value="" disabled selected>Choose one</option>
+      <option value="9.5">Multiply by 9.5</option>
+      <option value="10">Multiply by 10</option>
+    </select>
+
+    <button onclick="convertCGPA()">Convert</button>
+    <div id="result"></div>
+
+  </div>
+
+  <script>
+    function convertCGPA() {
+      let cgpa = parseFloat(document.getElementById("cgpa").value);
+      let multiplier = parseFloat(document.getElementById("multiplier").value);
+      if (isNaN(cgpa)) {
+        alert("Please enter a valid CGPA.");
+        return;
+      }
+      if (cgpa > 10 || cgpa < 0) {
+        alert("CGPA must be between 0 and 10.");
+        return;
+      }
+      let percentage = cgpa * multiplier;
+      document.getElementById("result").innerText =
+        "Percentage: " + percentage.toFixed(2) + "%";
+    }
+  </script>
+
+</body>
+</html>
