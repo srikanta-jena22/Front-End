@@ -12,30 +12,51 @@
 </head>
 <body>
   <h1>Cricket Game</h1>
-  <button onclick="
-  console.log(' You have chosen bat');
-  //this will generate random number between 0 and 3
-  let randomNumber=Math.random()*3
-  let computerChoice;
-  if(randomNumber>0 && randomNumber<=1){
-     computerChoice='Bat';
-      console.log('Computer choice is bat');
 
-  }
-  else if(randomNumber>1 && randomNumber<=2){
-    let computerChoice='Ball';
-    console.log('Computer choice is ball');
-  }
-  else{
-    let computerChoice='Stump';
-    console.log('Computer choice is stump');
-  }
+  <button onclick="playGame('Bat')">Bat</button>
+  <button onclick="playGame('Ball')">Ball</button>
+  <button onclick="playGame('Stump')">Stump</button>
 
-  if(computerChoice==='Bat'){
-    consol
-  }
-  ">Bat</button>
-  <button>Ball</button>
-  <button>Stump</button>
+  <script>
+    function playGame(userChoice){
+
+      let userChoiceMessage = `You have chosen ${userChoice}`;
+
+      // Generate random number between 0 and 3
+      let randomNumber = Math.floor(Math.random() * 3);
+
+      let computerChoice;
+
+      if(randomNumber === 0){
+        computerChoice = 'Bat';
+      }
+      else if(randomNumber === 1){
+        computerChoice = 'Ball';
+      }
+      else{
+        computerChoice = 'Stump';
+      }
+
+      let computerChoiceMessage = `Computer choice is ${computerChoice}`;
+      let resultMessage;
+
+      if(userChoice === computerChoice){
+        resultMessage = "It's a tie";
+      }
+      else if(
+        (userChoice === 'Bat' && computerChoice === 'Ball') ||
+        (userChoice === 'Ball' && computerChoice === 'Stump') ||
+        (userChoice === 'Stump' && computerChoice === 'Bat')
+      ){
+        resultMessage = "User won";
+      }
+      else{
+        resultMessage = "Computer won";
+      }
+
+      alert(`${userChoiceMessage}. ${computerChoiceMessage}. ${resultMessage}`);
+    }
+  </script>
+
 </body>
 </html>
